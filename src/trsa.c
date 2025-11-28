@@ -32,3 +32,13 @@ nat euclid(nat a, nat b, intg *x, intg *y)
 
     return gcd;
 }
+
+nat encrypt(nat m, public_key pbk)
+{
+    return powm(m, pbk.e, pbk.N);
+}
+
+nat decrypt(nat c, private_key pvk)
+{
+    return powm(c, pvk.d, pvk.N);
+}
