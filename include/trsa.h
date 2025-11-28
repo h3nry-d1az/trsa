@@ -36,7 +36,7 @@ typedef struct
  * @param a Base.
  * @param b Exponent.
  * @param m Modulus.
- * @return \f$a^b \operatorname{mod} m\f$.
+ * @return \f$a^b \mod m\f$.
  */
 nat powm(nat a, nat b, nat m);
 
