@@ -18,14 +18,18 @@ void generate_keys(nat ps[], unsigned int n, public_key *pbk, private_key *pvk)
     pvk->N = N;
 
     nat phi = (ps[i] - 1) * (ps[j] - 1);
-    nat e = 0, d, _;
+    nat e = 0;
+    intg d, _;
 
     do
     {
         e = ((nat)rand() % (phi - 1)) + 1;
-        e &= ~1;
+        e |= 1;
     } while (euclid(phi, e, &_, &d) != 1);
 
+    while (d < 0)
+        d += phi;
+
     pbk->e = e;
-    pvk->d = d;
+    pvk->d = (nat)d;
 }

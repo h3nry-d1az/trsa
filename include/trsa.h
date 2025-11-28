@@ -1,15 +1,30 @@
+/**
+ * @file trsa.h
+ * @brief Encryption and decryption algorithms.
+ * @author Henry Díaz Bordón
+ */
 #ifndef __TRSA_H__
 #define __TRSA_H__
 
 typedef unsigned long long nat;
 typedef long long intg;
 
+/**
+ * Public key for textbook RSA.
+ * @param e Public exponent used for encryption.
+ * @param N Modulus.
+ */
 typedef struct
 {
     nat e;
     nat N;
 } public_key;
 
+/**
+ * Private key for textbook RSA.
+ * @param d Private exponent used for decryption.
+ * @param N Modulus.
+ */
 typedef struct
 {
     nat d;
@@ -20,8 +35,8 @@ typedef struct
  * Exponentiation modulo m using square-and-multiply.
  * @param a Base.
  * @param b Exponent.
- * @param m Modulo.
- * @return $a^b \mod m$.
+ * @param m Modulus.
+ * @return \f$a^b \operatorname{mod} m\f$.
  */
 nat powm(nat a, nat b, nat m);
 
@@ -31,8 +46,8 @@ nat powm(nat a, nat b, nat m);
  * @param b Second number.
  * @param x Pointer to the Bezout coefficient of the first number.
  * @param y Pointer to the Bezout coefficient of the second number.
- * @return Returns $\gcd(a, b)$, and rewrites $x$, $y$ so that
- *  $ax+by = \gcd(a, b)$.
+ * @return Returns \f$\gcd(a, b)\f$, and rewrites \f$x\f$, \f$y\f$ so that
+ *  \f$ax+by = \gcd(a, b)\f$.
  */
 nat euclid(nat a, nat b, intg *x, intg *y);
 
@@ -40,7 +55,7 @@ nat euclid(nat a, nat b, intg *x, intg *y);
  * Encrypts an integer message using the provided public key.
  *
  * The encryption is performed as:
- *   $$ c = m^e \mod N $$
+ *   \f$\f$ c = m^e \mod N \f$\f$
  * @param m Message to encrypt.
  * @param pbk Public key.
  * @return Ciphertext in the range [0, N-1].
@@ -51,7 +66,7 @@ nat encrypt(nat m, public_key pbk);
  * Decrypts a ciphertext using the provided private key.
  *
  * The decryption is performed as:
- *   $$ m = c^d \mod N $$
+ *   \f$\f$ m = c^d \mod N \f$\f$
  * @param c Ciphertext to decrypt.
  * @param pvk Private key.
  * @return Decrypted message in the range [0, N-1].
