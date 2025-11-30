@@ -58,18 +58,18 @@ nat euclid(nat a, nat b, intg *x, intg *y);
  *   \f$\f$ c = m^e \mod N \f$\f$
  * @param m Message to encrypt.
  * @param pbk Public key.
- * @return Ciphertext in the range [0, N-1].
+ * @return Ciphertext in the range \f$[0, N-1]\f$.
  */
 nat encrypt(nat m, public_key pbk);
 
 /**
- * Decrypts a ciphertext using the provided private key.
+ * Decrypts an encrypted integer using the provided private key.
  *
  * The decryption is performed as:
  *   \f$\f$ m = c^d \mod N \f$\f$
- * @param c Ciphertext to decrypt.
+ * @param c Integer to decrypt.
  * @param pvk Private key.
- * @return Decrypted message in the range [0, N-1].
+ * @return Decrypted message in the range \f$[0, N-1]\f$.
  */
 nat decrypt(nat c, private_key pvk);
 

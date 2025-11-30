@@ -15,8 +15,8 @@
  * it is not cryptographically safe and serves only for demonstration purposes.
  * @param ps List of prime numbers.
  * @param n Number of primes in the array.
- * @param pbk Pointer to public_key struct to receive \f$(e, N)\f$.
- * @param pvk Pointer to private_key struct to receive \f$(d, N)\f$.
+ * @param pbk Pointer to `public_key` struct to receive \f$(e, N)\f$.
+ * @param pvk Pointer to `private_key` struct to receive \f$(d, N)\f$.
  */
 void generate_keys(nat ps[], unsigned int n, public_key *pbk, private_key *pvk);
 

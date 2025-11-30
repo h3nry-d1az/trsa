@@ -3,12 +3,14 @@ CFLAGS ?= -Wall -Werror -O3 -Iinclude
 
 TRSADIR := .
 TESTDIR := .
-ENCRYPT := trsa.so
-KEYGEN  := trsakg.so
+CRYPTO := trsa.so
+KEYGEN := trsakg.so
+
+all: trsa trsakg
 
 trsa:
 	$(CC) $(CFLAGS) -nostdlib -nodefaultlibs -fpic -shared\
-		src/trsa.c -o $(TRSADIR)/$(ENCRYPT)
+		src/trsa.c -o $(TRSADIR)/$(CRYPTO)
 
 trsakg: trsa
 	$(CC) $(CFLAGS) -fpic -shared -L$(TRSADIR) -ltrsa\

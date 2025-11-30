@@ -3,7 +3,7 @@
 nat powm(nat a, nat b, nat m)
 {
     unsigned char M = 8 * sizeof(b) - (unsigned char)(__builtin_clzll(b));
-    nat r = 1, c = a;
+    nat r = 1, c = a % m;
 
     for (unsigned char i = 0; i < M; i++)
     {
