@@ -7,7 +7,7 @@ nat powm(nat a, nat b, nat m)
 
     for (unsigned char i = 0; i < M; i++)
     {
-        if ((b & (1 << i)) >> i)
+        if (b & (1 << i))
             r = r * c % m;
         c = (c * c) % m;
     }
